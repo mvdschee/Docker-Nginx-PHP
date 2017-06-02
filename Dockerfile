@@ -40,8 +40,7 @@ RUN echo '#!/bin/bash \n\
     exec /usr/sbin/nginx -g "daemon off;"' >>  /etc/service/nginx/run
 
 #Configure nginx file for domain
-'s/'"$old_run"'/'"$new_run"'/'
-RUN sed -i 's|    server_name localhost;|    server_name '"${appname}"';|' /etc/nginx/sites-available/${conf}
+RUN sed -i "s|    server_name localhost;|    server_name ${appname};|" /etc/nginx/sites-available/${conf}
 
 # setup ssl deployment
 RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048

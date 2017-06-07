@@ -3,8 +3,8 @@ FROM maxvanderschee/base
 LABEL maintainer "m.v.d.schee@ewake.nl"
 
 # Env
-ENV conf non-ssl.conf
-ENV appname localhost.nl www.localhost.nl
+ENV CONF non-ssl.conf
+ENV APPURL localhost.nl www.localhost.nl
 
 # Install core packages for nginx and php7.0.
 RUN add-apt-repository ppa:certbot/certbot
@@ -17,7 +17,7 @@ WORKDIR /etc/nginx/
 COPY non-ssl.conf sites-available/non-ssl.conf
 COPY ssl.conf sites-available/ssl.conf
 RUN rm /etc/nginx/sites-enabled/default
-RUN ln -s /etc/nginx/sites-available/${conf} /etc/nginx/sites-enabled/${conf}
+RUN ln -s /etc/nginx/sites-available/${CONF} /etc/nginx/sites-enabled/${CONF}
 
 #Configure Nginx - enable gzip
 RUN sed -i 's|# gzip_types|  gzip_types|' /etc/nginx/nginx.conf

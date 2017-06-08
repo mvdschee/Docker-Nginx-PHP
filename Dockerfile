@@ -40,7 +40,8 @@ RUN echo '#!/bin/bash \n\
     exec /usr/sbin/nginx -g "daemon off;"' >>  /etc/service/nginx/run
 
 #Configure nginx file for domain
-COPY bash.sh /root/bash.sh
+WORKDIR /root
+COPY bash.sh bash.sh
 RUN bash /root/bash.sh
 
 # setup ssl deployment

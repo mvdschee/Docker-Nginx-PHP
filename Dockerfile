@@ -14,8 +14,11 @@ RUN apt-get clean -q && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # setup nginx config
 WORKDIR /etc/nginx/
+RUN rm nginx.conf
+COPY nginx.conf nginx.conf
 COPY non-ssl.conf sites-available/non-ssl.conf
 COPY ssl.conf sites-available/ssl.conf
+
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/${CONF} /etc/nginx/sites-enabled/${CONF}
 

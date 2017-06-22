@@ -54,7 +54,7 @@ COPY bash.sh bash.sh
 RUN bash /root/bash.sh
 
 # Secure docker form application exploitation
-RUN chown container:container /var/www/app -R
+RUN chown container:container /var/www -R
 
 # Setup ssl deployment
 RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048

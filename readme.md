@@ -17,6 +17,3 @@ This is a second stage image and should be used to build the final image for pro
 + Install and update the core components for this new container like Nginx, PHP-FPM, Certbot.
 + Setup PHP-FPM, Nginx.
 + Expose Volumes and ports.
-
-### Updated
-10 july 2017

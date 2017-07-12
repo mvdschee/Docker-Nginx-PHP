@@ -4,7 +4,8 @@ LABEL maintainer "m.v.d.schee@ewake.nl"
 
 # Env
 ENV CONF non-ssl.conf
-ENV APPURL localhost.nl www.localhost.nl
+ENV APPURL localhost.nl
+ENV SUBAPPURL www.localhost.nl
 
 # Install core packages for nginx and php7.0.
 RUN add-apt-repository ppa:certbot/certbot

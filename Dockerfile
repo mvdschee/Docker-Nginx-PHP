@@ -52,10 +52,6 @@ RUN echo '#!/bin/bash \n\
 # Configure nginx file for domain
 WORKDIR /root
 COPY bash.sh bash.sh
-RUN bash /root/bash.sh
-
-# Secure docker form application exploitation
-RUN chown container:container /var/www -R
 
 # Setup ssl deployment
 RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048

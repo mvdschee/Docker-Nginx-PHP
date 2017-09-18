@@ -51,7 +51,9 @@ RUN echo '#!/bin/bash \n\
 
 # Configure nginx file for domain
 WORKDIR /root
-COPY bash.sh bash.sh
+RUN mkdir -p /etc/my_init.d
+COPY bash.sh /etc/my_init.d/bash.sh
+RUN chmod +x /etc/my_init.d/bash.sh
 
 # Setup ssl deployment
 RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048

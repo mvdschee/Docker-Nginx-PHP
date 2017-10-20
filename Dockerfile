@@ -6,6 +6,7 @@ LABEL maintainer "m.v.d.schee@ewake.nl"
 ENV CONF non-ssl.conf
 ENV APPURL localhost
 ENV SUBAPPURL www.localhost
+ENV MAIL localhost@localhost
 
 # Install core packages for nginx and php7.0.
 RUN add-apt-repository ppa:certbot/certbot

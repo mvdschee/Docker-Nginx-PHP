@@ -19,7 +19,7 @@ if [ "$CONF" = "ssl.conf" ]; then
     sed -i "s|    ssl_trusted_certificate /etc/letsencrypt/live/localhost/chain.pem;|    ssl_trusted_certificate /etc/letsencrypt/live/${APPURL}/chain.pem;|" /etc/nginx/sites-available/ssl.conf
   else
     echo "Adding cert"
-    letsencrypt certonly -a webroot --webroot-path=/var/www/app -d  ${APPURL} -d ${SUBAPPURL}
+    letsencrypt certonly -a webroot --webroot-path /var/www/app -m ${MAIL} --agree-tos --non-interactive -d  ${APPURL} -d ${SUBAPPURL}
     sed -i "s|    ssl_certificate /etc/letsencrypt/live/localhost/fullchain.pem;|    ssl_certificate /etc/letsencrypt/live/${APPURL}/fullchain.pem;|" /etc/nginx/sites-available/ssl.conf
     sed -i "s|    ssl_certificate_key /etc/letsencrypt/live/localhost/privkey.pem;|    ssl_certificate_key /etc/letsencrypt/live/${APPURL}/privkey.pem;|" /etc/nginx/sites-available/ssl.conf
     sed -i "s|    ssl_trusted_certificate /etc/letsencrypt/live/localhost/chain.pem;|    ssl_trusted_certificate /etc/letsencrypt/live/${APPURL}/chain.pem;|" /etc/nginx/sites-available/ssl.conf

@@ -13,7 +13,8 @@ RUN apt-get clean -q && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 WORKDIR /etc/nginx/
 RUN rm nginx.conf
 COPY nginx.conf nginx.conf
-COPY ${VIRTUAL_PROTO}.conf conf.d/default.conf
+COPY http.conf http.conf
+COPY https.conf https.conf
 
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app.conf

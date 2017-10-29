@@ -2,6 +2,8 @@ FROM maxvanderschee/base
 
 LABEL maintainer "m.v.d.schee@ewake.nl"
 
+ENV VIRTUAL_PROTO http
+
 # Install core packages for nginx and php7.0.
 RUN apt-get update -q
 RUN apt-get install -y nginx php7.0 php7.0-fpm
@@ -11,7 +13,7 @@ RUN apt-get clean -q && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 WORKDIR /etc/nginx/
 RUN rm nginx.conf
 COPY nginx.conf nginx.conf
-COPY app.conf sites-available/app.conf
+COPY ${VIRTUAL_PROTO}.conf config.d/default.conf
 
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app.conf

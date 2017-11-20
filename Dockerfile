@@ -48,8 +48,8 @@ RUN echo '#!/bin/bash \n\
 # Configure nginx file for domain
 WORKDIR /root
 RUN mkdir -p /etc/my_init.d
-COPY bash.sh /etc/my_init.d/bash.sh
-RUN chmod +x /etc/my_init.d/bash.sh
+COPY bash.sh /etc/my_init.d/01_bash.sh
+RUN chmod +x /etc/my_init.d/01_bash.sh
 
 # Expose configuration and content volumes
 VOLUME /var/www/app

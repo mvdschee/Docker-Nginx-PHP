@@ -10,6 +10,9 @@ This image is optimized for use with any basic **PHP7.0** website
 **Only works with Docker-Compose**
 This is a second stage image and should be used to build the final image for production/development.
 
+In the final build stage make sure you added a `security.conf` with in the snippets folder in NGINX.
+this file contains thinks like hide .files and file type you don't want people to look at.
+
 ### Dockerfile
 
 + Define the base image as **maxvanderschee/base**, an excellent minified Ubuntu 16.04 LTS Docker container.
